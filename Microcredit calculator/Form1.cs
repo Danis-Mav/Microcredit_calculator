@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,11 +18,13 @@ namespace Microcredit_calculator
             InitializeComponent();
             
         }
-        
+
+        string writePath = @"C:\Users\201911\Desktop";
         
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             double sum;
             double days;
              
@@ -41,18 +44,33 @@ namespace Microcredit_calculator
                 if (count < 6)
                 {
                     pile_up = pile_up + (p1 * sum);
-                    stavka = stavka + p1;  
+                    stavka = stavka + p1;
+
+                    using (StreamWriter sw = new StreamWriter(writePath, true, System.Text.Encoding.Default))
+                    {
+                        sw.WriteLine("День - " + count + " | Ставка - " + stavka + " | % (накопительно) - " + pile_up + " | Сумма Выплат -" + (stavka + sum));
+                    }
                 }
           
                 if ((count > 5) && (count < 11))
                 {
                     pile_up = pile_up + (p2 * sum); 
                     stavka = stavka + p2;
+
+                    using (StreamWriter sw = new StreamWriter(writePath, true, System.Text.Encoding.Default))
+                    {
+                        sw.WriteLine("День - " + count + " | Ставка - " + stavka + " | % (накопительно) - " + pile_up + " | Сумма Выплат -" + (stavka + sum));
+                    }
                 }
                 if (count > 10)
                 {
                     pile_up = pile_up + ((p3) * sum);
                     stavka = stavka + p3;
+
+                    using (StreamWriter sw = new StreamWriter(writePath, true, System.Text.Encoding.Default))
+                    {
+                        sw.WriteLine("День - " + count + " | Ставка - " + stavka + " | % (накопительно) - " + pile_up + " | Сумма Выплат -" + (stavka + sum));
+                    }
                 }
                 count++;
 
