@@ -19,7 +19,7 @@ namespace Microcredit_calculator
             
         }
 
-        string writePath = @"C:\Users\201911\Desktop";
+        string writePath = @"C:\Users\201911\Documents\save.txt";
         
 
         private void button1_Click(object sender, EventArgs e)
@@ -48,7 +48,7 @@ namespace Microcredit_calculator
 
                     using (StreamWriter sw = new StreamWriter(writePath, true, System.Text.Encoding.Default))
                     {
-                        sw.WriteLine("День - " + count + " | Ставка - " + stavka + " | % (накопительно) - " + pile_up + " | Сумма Выплат -" + (stavka + sum));
+                        sw.WriteLine("День - " + count + " | Ставка - " + p1 * 100 + "%" + " | % (накопительно) - " + pile_up + " | Сумма Выплат -" + (stavka * 10000 + sum));
                     }
                 }
           
@@ -59,7 +59,7 @@ namespace Microcredit_calculator
 
                     using (StreamWriter sw = new StreamWriter(writePath, true, System.Text.Encoding.Default))
                     {
-                        sw.WriteLine("День - " + count + " | Ставка - " + stavka + " | % (накопительно) - " + pile_up + " | Сумма Выплат -" + (stavka + sum));
+                        sw.WriteLine("День - " + count + " | Ставка - " + p2 * 100 + "%" + " | % (накопительно) - " + pile_up + " | Сумма Выплат -" + (stavka * 10000 + sum));
                     }
                 }
                 if (count > 10)
@@ -69,7 +69,7 @@ namespace Microcredit_calculator
 
                     using (StreamWriter sw = new StreamWriter(writePath, true, System.Text.Encoding.Default))
                     {
-                        sw.WriteLine("День - " + count + " | Ставка - " + stavka + " | % (накопительно) - " + pile_up + " | Сумма Выплат -" + (stavka + sum));
+                        sw.WriteLine("День - " + count + " | Ставка - " + p3 * 100 + "%" + " | % (накопительно) - " + pile_up + " | Сумма Выплат -" + (stavka * 10000 + sum));
                     }
                 }
                 count++;
