@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
+
 
 namespace Microcredit_calculator
 {
@@ -79,9 +81,7 @@ namespace Microcredit_calculator
             textBox5.Text = Convert.ToString(stavka);
             textBox4.Text = Convert.ToString(pile_up);
             textBox3.Text = Convert.ToString(pile_up + sum);
-
-
-
+            Process.Start(@"C:\Users\201911\Documents\save.txt");
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -122,7 +122,12 @@ namespace Microcredit_calculator
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-
+            try
+            {
+                int days = Convert.ToInt32(textBox2.Text);
+                if (days > 365) MessageBox.Show("Ошибка ввода даты", "Ошибка", MessageBoxButtons.OK);
+            }
+            catch { }
         }
     }
 }
