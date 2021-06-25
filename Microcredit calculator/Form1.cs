@@ -22,13 +22,13 @@ namespace Microcredit_calculator
         }
 
         string writePath = @"C:\Users\201911\Documents\save.txt";
-        
+        double sum;
+        double days;
 
         private void button1_Click(object sender, EventArgs e)
         {
             
-            double sum;
-            double days;
+            
              
             double stavka = 0;
 
@@ -82,6 +82,7 @@ namespace Microcredit_calculator
             textBox4.Text = Convert.ToString(pile_up);
             textBox3.Text = Convert.ToString(pile_up + sum);
             Process.Start(@"C:\Users\201911\Documents\save.txt");
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -122,12 +123,7 @@ namespace Microcredit_calculator
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                int days = Convert.ToInt32(textBox2.Text);
-                if (days > 365) MessageBox.Show("Ошибка ввода даты", "Ошибка", MessageBoxButtons.OK);
-            }
-            catch { }
+           
         }
     }
 }
