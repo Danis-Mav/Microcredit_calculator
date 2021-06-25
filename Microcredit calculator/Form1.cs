@@ -29,32 +29,32 @@ namespace Microcredit_calculator
 
             sum = Convert.ToDouble(textBox1.Text);
             days = Convert.ToDouble(textBox2.Text);
-            int i = 1;
+            int count = 1;
             double pile_up = 0;
 
-            while (i <= days)
+            while (count <= days)
             {
                 double p1 = 0.009;
                 double p2 = 0.007;
                 double p3 = 0.006;
                 
-                if (i < 6)
+                if (count < 6)
                 {
                     pile_up = pile_up + (p1 * sum);
                     stavka = stavka + p1;  
                 }
           
-                if ((i > 5) && (i < 11))
+                if ((count > 5) && (count < 11))
                 {
                     pile_up = pile_up + (p2 * sum); 
                     stavka = stavka + p2;
                 }
-                if (i > 10)
+                if (count > 10)
                 {
                     pile_up = pile_up + ((p3) * sum);
                     stavka = stavka + p3;
                 }
-                i++;
+                count++;
 
             }
             stavka = (100*stavka / days);
@@ -68,16 +68,22 @@ namespace Microcredit_calculator
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            int a = Convert.ToInt32(textBox1.Text);
-            if (a > 500000) MessageBox.Show("Вы не можете превысить допустимый порог в 500 тыс.", "Ошибка", MessageBoxButtons.OK);
+            try
+            {
+                int sum = Convert.ToInt32(textBox1.Text);
+                if (sum > 500000) MessageBox.Show("Вы не можете превысить допустимый порог в 500 тыс.", "Ошибка", MessageBoxButtons.OK);
+            }
+            catch { }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            int d = Convert.ToInt32(textBox2.Text);
-            if (textBox2.Text != null)
-                d = int.Parse(textBox2.Text);
-            if (d > 365) MessageBox.Show("Ошибка ввода даты", "Ошибка", MessageBoxButtons.OK);
+            try
+            {
+                int days = Convert.ToInt32(textBox2.Text);
+                if (days > 365) MessageBox.Show("Ошибка ввода даты", "Ошибка", MessageBoxButtons.OK);
+            }
+            catch { }
 
         }
 
