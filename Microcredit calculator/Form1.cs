@@ -37,7 +37,6 @@ namespace Microcredit_calculator
                 double p1 = 0.009;
                 double p2 = 0.007;
                 double p3 = 0.006;
-
                 
                 if (i < 6)
                 {
@@ -69,7 +68,8 @@ namespace Microcredit_calculator
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
- 
+            int a = Convert.ToInt32(textBox1.Text);
+            if (a > 500000) MessageBox.Show("Вы не можете превысить допустимый порог в 500 тыс.", "Ошибка", MessageBoxButtons.OK);
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
